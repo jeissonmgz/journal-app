@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
 import { useDispatch } from "react-redux";
-import { login } from "../../actions/auth";
+import { startLoginWithEmailPassword } from "../../actions/auth";
 
 export const LoginScreen = () => {
   const dispatch = useDispatch();
@@ -14,7 +14,8 @@ export const LoginScreen = () => {
   const { email, password } = formValues;
   const handleLogin = (e) => {
     e.preventDefault();
-    dispatch(login("12345", "Jase"));
+    dispatch(startLoginWithEmailPassword(email, password));
+    //dispatch(login("12345", "Jase"));
   };
   return (
     <>
